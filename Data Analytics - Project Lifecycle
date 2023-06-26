@@ -4,35 +4,51 @@ The standard lifecycle of a data analytics project typically involves several st
 the following are common phases in the data analytics project lifecycle:
 
 1. Project Initiation:
-    - Define the project objectives and scope.
-    - Identify stakeholders and their requirements.
-    - Formulate the project team and assign roles and responsibilities.
-    - Assess the feasibility and potential value of the project.
+    - Define the project objectives and scope. (This is the project to track the resource allocation for the entire department. where the initial implementation will start from the first 1 customer and then it will be 
+implemented for the other remaining customers.)
+    - Identify stakeholders and their requirements. (All the management people and senior managers along with directors and senior director )
+    - Formulate the project team and assign roles and responsibilities.  
+[
+    * Current team consist of only 1 member and along the way data handling team and viz team will get included.
+
+ ]
+    - Assess the feasibility and potential value of the project. ( objective is to track whether the business resource utilisation is going in the right direction or if is there any requirement for resources.)
+
 2. Data Collection and Preparation:
-    - Identify the data sources required for the analysis.
-    - Collect and gather relevant data from various sources.
+    - Identify the data sources required for the analysis. (One-Drive Folder Location is the data source)
+    - Collect and gather relevant data from various sources.  (There is only one data source.)
     - Cleanse, validate, and transform the data to ensure its quality and usability.
+[     
+    * Required columns will be very specific and so 
+    * parameter required from the data - Customer_Name | Customer_Service_Type | Date | Received [data] | Completed [data] | working hours | total data | etc. 
+
+]
     - Perform data integration, if necessary, to combine data from multiple sources.
+
 3. Data Exploration and Analysis:
     - Explore the data to understand its structure, patterns, and relationships.
     - Apply descriptive and exploratory analytics techniques to gain insights.
     - Use statistical analysis and data visualization to identify trends and correlations.
     - Develop and refine hypotheses to guide further analysis.
+
 4. Model Development and Implementation:
     - Select appropriate data modelling and analysis techniques based on project objectives.
     - Build predictive models, machine learning algorithms, or other analytical models.
     - Validate and fine-tune the models using appropriate methodologies.
     - Implement the models into the data analytics system or platform.
+
 5. Results Interpretation and Reporting:
     - Analyze the model outputs and interpret the results in the context of the project objectives.
     - Derive meaningful insights and actionable recommendations from the analysis.
     - Prepare reports, dashboards, or visualizations to communicate the findings effectively.
     - Present the results to stakeholders and engage in discussions to drive decision-making.
+
 6. Deployment and Monitoring:
     - Implement the recommended solutions or strategies derived from the analysis.
     - Monitor the performance of the deployed solution and track key metrics.
     - Continuously assess and refine the models and methodologies used.
     - Address any issues or challenges that arise during the deployment phase.
+
 7. Project Closure and Evaluation:
     - Evaluate the project's success against the defined objectives.
     - Review the lessons learned and document best practices.
