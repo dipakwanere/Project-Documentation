@@ -6,7 +6,42 @@ The script will iterate through the sheet_names list and attempt to read the cor
 It will store the resulting data frames in the data_frames list. If any file is not found or encounters an error while reading,
 an appropriate error message will be displayed. Finally, it will print the data frames one by one along with their corresponding sheet names.
 """
+import os
+import pandas as pd
 
+def read_excel_files(source_folder):
+    dfs = []  # List to store the dataframes
+    
+    # Get a list of all files in the source folder
+    file_list = os.listdir(source_folder)
+    
+    for file_name in file_list:
+        # Check if the file is an Excel file
+        if file_name.endswith('.xlsx') or file_name.endswith('.xls'):
+            file_path = os.path.join(source_folder, file_name)
+            excel_data = pd.read_excel(file_path, sheet_name=None)
+            
+            for sheet_name, sheet_data in excel_data.items():
+                if isinstance(sheet_data, pd.DataFrame):
+                    # Check if the sheet is the second occurrence of its name
+                    if list(excel_data).count(sheet_name) == 2:
+                        df = pd.DataFrame(sheet_data)
+                        dfs.append(df)
+    
+    return dfs
+
+# Specify the source folder path where the Excel files are located
+source_folder = 'path/to/source/folder'
+
+# Call the function to read the Excel files and retrieve the dataframes
+dataframes = read_excel_files(source_folder)
+
+# Access the dataframes for further processing
+df1 = dataframes[0]
+df2 = dataframes[1]
+df3 = dataframes[2]
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 import os
 import pandas as pd
 
