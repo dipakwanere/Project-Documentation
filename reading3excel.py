@@ -23,6 +23,41 @@ def read_excel_files(source_folder):
             
             for sheet_name, sheet_data in excel_data.items():
                 if isinstance(sheet_data, pd.DataFrame):
+                    df = pd.DataFrame(sheet_data)
+                    dfs.append(df)
+    
+    return dfs
+
+# Specify the source folder path where the Excel files are located
+source_folder = 'path/to/source/folder'
+
+# Call the function to read the Excel files and retrieve the dataframes
+dataframes = read_excel_files(source_folder)
+
+# Separate the dataframes for each Excel file
+df1 = dataframes[:3]  # DataFrames from the first Excel file
+df2 = dataframes[3:6]  # DataFrames from the second Excel file
+df3 = dataframes[6:]  # DataFrames from the third Excel file
+
+
++++++++++++++++++++++++++++++++++++++++++++
+import os
+import pandas as pd
+
+def read_excel_files(source_folder):
+    dfs = []  # List to store the dataframes
+    
+    # Get a list of all files in the source folder
+    file_list = os.listdir(source_folder)
+    
+    for file_name in file_list:
+        # Check if the file is an Excel file
+        if file_name.endswith('.xlsx') or file_name.endswith('.xls'):
+            file_path = os.path.join(source_folder, file_name)
+            excel_data = pd.read_excel(file_path, sheet_name=None)
+            
+            for sheet_name, sheet_data in excel_data.items():
+                if isinstance(sheet_data, pd.DataFrame):
                     # Check if the sheet is the second occurrence of its name
                     if list(excel_data).count(sheet_name) == 2:
                         df = pd.DataFrame(sheet_data)
