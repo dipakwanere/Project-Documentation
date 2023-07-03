@@ -6,6 +6,61 @@ The script will iterate through the sheet_names list and attempt to read the cor
 It will store the resulting data frames in the data_frames list. If any file is not found or encounters an error while reading,
 an appropriate error message will be displayed. Finally, it will print the data frames one by one along with their corresponding sheet names.
 """
+import pandas as pd
+import os
+
+def read_excel_files(input_folder):
+    excel_files = []
+    worksheets = []
+
+    # Get a list of all files in the input folder
+    files = os.listdir(input_folder)
+
+    # Filter for Excel files (.xlsx or .xls)
+    excel_files = [file for file in files if file.endswith(('.xlsx', '.xls'))]
+
+    # Loop through each Excel file
+    for file in excel_files:
+        file_path = os.path.join(input_folder, file)
+
+        # Read all sheets from the Excel file
+        excel_data = pd.read_excel(file_path, sheet_name=None)
+
+        # Get the worksheet names and store them in the worksheets list
+        worksheet_names = list(excel_data.keys())
+        worksheets.extend([(file, sheet_name) for sheet_name in worksheet_names])
+
+    return excel_files, worksheets
+
+# Specify the input folder containing Excel files
+input_folder = "C:\\Users\\dipak\\OneDrive\\PythonScriptNewL1"
+
+# Call the function to read Excel files and get the filenames and worksheet names
+excel_files, worksheets = read_excel_files(input_folder)
+
+# Check if "indexing" sheet name is in the worksheet list
+for sheet_name in worksheets:
+    if sheet_name == "data_indexing":
+        mtd_aiq = pd.read_excel(file_path, sheet_name="data_indexing")
+        
+# try:
+#     if "data_indexing" in [sheet_name for _, sheet_name in worksheets]:
+#         mtd_aiq = pd.read_excel(file_path, sheet_name=worksheets[1][1])
+        
+#     if "RPM" in [sheet_name for _, sheet_name in worksheets]:
+#         mtd_pending = pd.read_excel(file_path, sheet_name="RPM")
+        
+#     if "data_indexing" in [sheet_name for _, sheet_name in worksheets]:
+#         quality = pd.read_excel(file_path, sheet_name="data_indexing")
+        
+#     else:
+#         print("Sheet name is not present in the worksheets list.")
+        
+# except Exception as e:
+#     print("An error occurred while checking the worksheet list:", str(e))
+
+
++++++++++++++++++++++++++++++++++++++++++++++
 import os
 import pandas as pd
 
